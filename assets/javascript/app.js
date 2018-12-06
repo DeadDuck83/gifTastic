@@ -59,7 +59,7 @@ $(document).ready(function () {
     //When user clicks a still image it will start to animate
 
    
-    $(".gif").on("click", function () {
+    $(".gif-go-here").on("click",".gif", function () {
         console.log("click event");
         var state = $(this).attr("data-state");
         console.log(state);

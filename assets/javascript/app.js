@@ -75,6 +75,21 @@ $(document).ready(function () {
     // DONE ABOVE
     // Add form to page that takes in User data and places it into your 'topics' array. Then make a function that makes a new button based on their input
 
+    function makeDaButton() {
+
+    }
+
+    $("#submit").on("click", function(event) {
+        event.preventDefault();
+        var newGif = $("#user-button").val().trim();
+
+        cookieArr.push(newGif);
+        console.log(cookieArr);
+
+
+        // makeDaButton();
+    });
+
     // ==== IMPORTANT ==== 
 
     // Create a ReadMe.md file for this project

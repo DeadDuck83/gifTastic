@@ -86,15 +86,15 @@ $(document).ready(function () {
     // ==== IMPORTANT ==== 
 
     // Create a ReadMe.md file for this project
-
+//Done
     // Add this to your portfolio to get full credit on the project.
-
+//Done
     //  -----  BONUS ROUND  ------
 
     // make it fully mobile responsive
-
+// done
     // allow additional GIFs to be added to the page. NOT override existing ones
-
+// This was happening all along
     // List extra metadata. From API
 
     // Include 1 touch download button
@@ -111,4 +111,27 @@ $(document).ready(function () {
     $('#user-button').hover(
         function () { $(this).removeClass('infinite') }
     );
+
+    // Back to top JS
+    if ($('#back-to-top').length) {
+        var scrollTrigger = 100, // px
+            backToTop = function () {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop > scrollTrigger) {
+                    $('#back-to-top').addClass('show');
+                } else {
+                    $('#back-to-top').removeClass('show');
+                }
+            };
+        backToTop();
+        $(window).on('scroll', function () {
+            backToTop();
+        });
+        $('#back-to-top').on('click', function (e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: 0
+            }, 700);
+        });
+    }
 });

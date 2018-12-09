@@ -1,15 +1,16 @@
 // A $( document ).ready() block.
 $(document).ready(function () {
-    console.log("ready!");
 
 
     // create an array of strings, each one related to a topic that interests me
     var cookieArr = ["Brown Butter", "Snickerdoodle", "Chocolate Chip", "Fortune Cookie", "Sugar Cookie", "Oreo", "Gingerbread Cookie", "Gingersnap Cookie", "Molasses Cookie", "Oatmeal Cookie"];
     // App will take in the topics in this array and create buttons in HTML(Which one is this?)
     function setDefaultButtons() {
+        $(".buttons").empty();
+
         for (var i = 0; i < cookieArr.length; i++) {
             var arrBtn = $("<button>");
-            arrBtn.addClass("btn btn-primary");
+            arrBtn.addClass("btn btn-info gif-btn");
             // Pojo
             arrBtn.attr({ "type": "button", "cookie-type": cookieArr[i] });
             arrBtn.text(cookieArr[i]);
@@ -19,7 +20,7 @@ $(document).ready(function () {
     }
     setDefaultButtons();
     // When buttons are clicked 10 static (non-animated buttons (Paused.html)) will display.
-    $("button").on("click", function () {
+    $(document.body).on("click", ".gif-btn", function () {
         var cookieType = $(this).attr("cookie-type");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             cookieType + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -29,7 +30,6 @@ $(document).ready(function () {
             method: "GET"
         })
             .then(function (response) {
-                console.log(response);
                 var results = response.data;
 
                 for (var i = 0; i < results.length; i++) {
@@ -58,11 +58,9 @@ $(document).ready(function () {
     });
     //When user clicks a still image it will start to animate
 
-   
-    $(".gif-go-here").on("click",".gif", function () {
-        console.log("click event");
+
+    $(".gif-go-here").on("click", ".gif", function () {
         var state = $(this).attr("data-state");
-        console.log(state);
         if (state === "still") {
             $(this).attr("src", $(this).attr('animated-gif'));
             $(this).attr("data-state", "animate");
@@ -75,19 +73,14 @@ $(document).ready(function () {
     // DONE ABOVE
     // Add form to page that takes in User data and places it into your 'topics' array. Then make a function that makes a new button based on their input
 
-    function makeDaButton() {
 
-    }
 
-    $("#submit").on("click", function(event) {
+    $("#submit").on("click", function (event) {
         event.preventDefault();
         var newGif = $("#user-button").val().trim();
-
         cookieArr.push(newGif);
-        console.log(cookieArr);
 
-
-        // makeDaButton();
+        setDefaultButtons();
     });
 
     // ==== IMPORTANT ==== 

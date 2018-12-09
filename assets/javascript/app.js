@@ -103,4 +103,12 @@ $(document).ready(function () {
 
     // Allow a 'favorites' option to a GIF
 
+
+    //animate CSS functions
+    $('#headline').hover(
+        function () { $(this).removeClass('infinite') }
+    );
+    $('#user-button').hover(
+        function () { $(this).removeClass('infinite') }
+    );
 });

@@ -22,6 +22,7 @@ button.btn.btn-info {
 .container-fluid {
     background-color: #e1f5f5;
     text-align: center;
+    padding-top:1em;
 }
 section {
     min-height:100vh;
@@ -36,5 +37,6 @@ body {
 h1 {
     font-family: 'Sigmar One', cursive;
     color:#17a2b8;
+    font-size:4.5em;
 
 }

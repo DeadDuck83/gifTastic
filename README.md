@@ -15,4 +15,4 @@ Gif generator powered by Giphy API
   * [Animate.css] - This is for the simple animations
   * [Google Fonts] - For good web fonts
   * [Font Awesome] - This is for the icons
-  * [Bootstrap] - This is for the HTML and CSS framework
+  * [Twitter Bootstrap] - This is for the HTML and CSS framework
